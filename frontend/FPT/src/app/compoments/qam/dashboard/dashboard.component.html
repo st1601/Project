@@ -1,0 +1,42 @@
+<app-navbarm></app-navbarm>
+<div class="home">
+  <h1 class="text-left font-weight-bold">Dashboard</h1>
+
+  <div id="piechart">
+    <apx-chart
+      [series]="chartOptionsPie.series"
+      [chart]="chartOptionsPie.chart"
+      [labels]="chartOptionsPie.labels"
+      [responsive]="chartOptionsPie.responsive"
+    ></apx-chart>
+    <br />
+    <p class="text-center" style="font-weight: bold">Pie chart</p>
+  </div>
+
+  <div id="colchart">
+    <apx-chart
+      [series]="chartOptionsCol.series"
+      [chart]="chartOptionsCol.chart"
+      [dataLabels]="chartOptionsCol.dataLabels"
+      [plotOptions]="chartOptionsCol.plotOptions"
+      [yaxis]="chartOptionsCol.yaxis"
+      [xaxis]="chartOptionsCol.xaxis"
+      [fill]="chartOptionsCol.fill"
+      [title]="chartOptionsCol.title"
+    ></apx-chart>
+    <br />
+    <p class="text-center" style="font-weight: bold">Column chart</p>
+  </div>
+
+  <div id="barchart">
+    <apx-chart
+      [series]="chartOptionsBar.series"
+      [chart]="chartOptionsBar.chart"
+      [dataLabels]="chartOptionsBar.dataLabels"
+      [plotOptions]="chartOptionsBar.plotOptions"
+      [xaxis]="chartOptionsBar.xaxis"
+    ></apx-chart>
+    <br />
+    <p class="text-center" style="font-weight: bold">Bar chart</p>
+  </div>
+</div>

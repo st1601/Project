@@ -1,0 +1,83 @@
+<app-navbars></app-navbars>
+<div class="content">
+  <div
+    class="form-outline d-flex flex-row"
+    style="margin-left: 150px; margin-right: 130px"
+  >
+    <input id="search-focus" type="search" id="form1" class="form-control" />
+    <button class="p-2" style="border-radius: 5px">
+      <i class="bi bi-search"></i>
+    </button>
+  </div>
+  <div >
+    <h2 class="d-flex justify-content-center text-align-center">
+      List category
+    </h2>
+    <div class="d-flex flex-row-reverse" style="margin-right: 50px">
+      <div class="p-2">
+        <input type="text" class="form-control" placeholder="Sort" />
+      </div>
+    </div>
+    <br />
+    <div *ngFor="let item of allCategory">
+    <button (click)="po(item.id)" class="but" type="button" style="border-radius: 5px; width: 1000px; margin-left: 100px; margin-bottom: 20px;">
+      <i class="bi bi-person-fill">{{ item.categoryName }}</i>
+    </button><br></div>
+  </div>
+  <br />
+  <nav
+    aria-label="Page navigation example"
+    class="d-flex justify-content-center"
+  >
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<!-- Modal Detail -->
+<div *ngIf="showc" class="bor">
+  <div class="pop">
+    <div class="modal-header">
+      <h1 class="text-align-center center">Detail</h1>
+      <button type="button" class="btn-close" (click)="cl()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Category Name</label>
+        <div class="col-sm-8">
+          <input
+            [(ngModel)]="detailCategory.categoryName"
+            class="form-control"
+            type="text"
+            disabled
+          />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-8">
+          <input
+            [(ngModel)]="detailCategory.categoryDescription"
+            class="form-control"
+            type="text"
+            disabled
+          />
+        </div>
+      </div>
+    </div>
+    <br />
+  </div>
+  <br />
+</div>

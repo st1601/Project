@@ -1,0 +1,60 @@
+<app-navbarm></app-navbarm>
+<div class="cat">
+  <h1 class="text-left font-weight-bold">Categories</h1>
+  <br />
+
+  <div>
+    <div class="d-flex justify-content-end">
+      <div ngbDropdown class="d-inline-block">
+        <button (click)="cr()" type="button" class="btn btn-primary br">
+          Create
+        </button>
+      </div>
+    </div>
+    <br />
+    <div>
+      <ul class="list-group">
+        <li
+          class="list-group-item text-capitalize d-flex justify-content-between"
+          *ngFor="let cat of allCategory; let i = index"
+        >
+          <span>
+            {{ i + 1 }}. {{ cat.categoryName }}
+
+          </span>
+          <span>
+            {{ cat.categoryDescription}}
+          </span>
+          <button class="btn btn-danger" (click)="deleteCat(i)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+ <!-- Modal Create -->
+ <div *ngIf="showc" class="bor">
+  <div class="pop">
+    <div class="modal-header">
+      <h1 class="text-align-center center">Create category</h1>
+      <button type="button" class="btn-close" (click)="cl()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Category Name</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]="createCategory.categoryName" type="text" class="form-control" id="input" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]="createCategory.categoryDescription" type="text" class="form-control" id="input" />
+        </div>
+      </div>
+    <div class="modal-footer">
+      <button (click)="save()" type="button" class="btn btn-primary">
+        Create
+      </button>
+    </div>
+  </div>
+</div>

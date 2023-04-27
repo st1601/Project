@@ -1,0 +1,275 @@
+<div class="d-flex">
+  <div class="container">
+    <div class="text-center">
+      <div class="site-logo">
+        <a class="justify-content-center" routerLink="/">
+          <img src="assets/img/zyro-image.png" alt="" style="width: 100px" />
+        </a>
+      </div>
+      <br />
+      <ul class="flex-column mb-auto" style="margin-left: 15px;">
+        <li>
+          <a
+            class="nav-link"
+            [routerLink]="['/mains']"
+            routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <br />
+        <li>
+          <a
+            class="nav-link"
+            [routerLink]="['/events']"
+            routerLinkActive="active"
+            >Event</a
+          >
+        </li>
+        <br />
+        <li>
+          <a
+            class="nav-link"
+            [routerLink]="['/category']"
+            routerLinkActive="active"
+            >Category</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div  class="btn d-flex justify-content-end">
+  <!-- <div *ngFor="let item of allUser"> -->
+  <div ngbDropdown class="d-inline-block" >
+    <button
+      style="
+        background-color: rgb(255, 188, 150);
+        margin-bottom: -20px;
+        padding: 1px 7px;
+      "
+      class="btn btn-light"
+      id="dropdownBasic1"
+      ngbDropdownToggle
+    >
+      <i class="bi bi-person-circle" style="font-size: 20px"></i>
+    </button>
+    <div
+      style="background-color: white"
+      ngbDropdownMenu
+      aria-labelledby="dropdownBasic1"
+    >
+      <button ngbDropdownItem *ngIf="appService.isLogIn()" >
+        <a (click)="po()" style="color: black" class="nav-link">Profile </a>
+      </button>
+
+      <button ngbDropdownItem *ngIf="appService.isLogIn()">
+        <a (click)="ch()" style="color: black" class="nav-link"
+          >Change password
+        </a>
+      </button>
+      <button ngbDropdownItem *ngIf="appService.isLogIn()">
+        <a style="color: black" class="nav-link" (click)="lo()">Logout </a>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Model Profile -->
+<div *ngIf="showp" class="bor">
+  <div class="pop">
+    <div class="modal-header">
+      <h1 class="text-align-center center">Profile</h1>
+      <button type="button" class="btn-close" (click)="cl()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">User Name</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" disabled />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Full Name</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" disabled />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Date Of Birth</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="date" disabled />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" disabled />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="number" disabled />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Role</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" disabled />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Department</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" disabled />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-8">
+          <input value="123456" class="form-control" type="number" disabled />
+        </div>
+      </div>
+      <br />
+      <div class="modal-footer justify-content-center">
+        <button
+          (click)="ed()"
+          class="cre fa-align-center"
+          type="button"
+          class="btn btn-primary"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Model Edit -->
+<div *ngIf="showe" class="bor">
+  <div class="pop">
+    <div class="modal-header">
+      <h1 class="text-align-center center">Profile</h1>
+      <button type="button" class="btn-close" (click)="cl()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">User Name</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text"/>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Full Name</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Date Of Birth</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="date" >
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" disabled />
+          <p style="color: red;">***Can not change email</p>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="number" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Role</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Department</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-8">
+          <input value="123456" class="form-control" type="password" disabled/>
+          <p style="color: red;">***Can not change password</p>
+        </div>
+      </div>
+      <br />
+      <div class="modal-footer">
+        <button
+          (click)="cl()"
+          type="button"
+          class="cancelbtn"
+          style="border-radius: 5px"
+        >
+          Cancel
+        </button>
+        <button
+          (click)="ed()"
+          type="button"
+          class="deletebtn"
+          style="border-radius: 5px"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Change Password -->
+<div *ngIf="showc" class="bor">
+  <div class="pop">
+    <div class="modal-header">
+      <h1>Change password</h1>
+      <button type="button" class="btn-close" (click)="cl()"></button>
+    </div>
+    <br>
+    <div class="modal-body">
+      <input type="text" class="form-control" placeholder="Current password">
+    </div>
+    <br>
+    <div class="modal-body">
+      <input type="text" class="form-control" placeholder="Enter a new password">
+    </div>
+    <br>
+    <div class="modal-footer">
+      <button
+        (click)="ch()"
+        type="button"
+        class="deletebtn"
+        style="border-radius: 5px"
+      >
+        Change password
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Modal Logout -->
+<div *ngIf="showl" class="bor">
+  <div class="pop">
+    <div class="modal-header">
+      <h1>Logout</h1>
+      <button type="button" class="btn-close" (click)="cl()"></button>
+    </div>
+    <div class="modal-body">
+      <p>Do you want to logout?</p>
+    </div>
+    <button ngbDropdownItem *ngIf="appService.isLogIn()">
+      <a
+        style="color: black; margin-left: 500px;"
+        class="btn btn-danger"
+        href
+        (click)="appService.logout()"
+        >Logout
+      </a>
+    </button>
+  </div>
+</div>

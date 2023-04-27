@@ -1,0 +1,15 @@
+﻿To run migration to your database:
+
+1. Change connection string in 'appsettings.json'
+
+2. Open Package Manager Console
+CLick 'Tools' => 'Nuget Package Manage' => 'Package Manager Console'
+
+3. Select Data 
+CLick 'Default project'p select 'Data'
+
+3. Run migration:
+add-migration FirstMigration -context DatabaseContext -o Migrations
+
+4. Update migration:
+update-database

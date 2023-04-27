@@ -1,0 +1,68 @@
+<app-navbars></app-navbars>
+<div class="content">
+  <div class="d-flex justify-content-center">
+    <h2 class="d-flex">Create new ideas</h2>
+  </div>
+  <div class="modal-body" style="margin-left: 50px; margin-right: 50px;">
+    <div class="mb-3 row">
+      <label for="input" class="col-form-label">Title</label>
+      <div>
+        <input type="text" class="form-control" id="input" />
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="input" class="col-form-label">Description</label>
+      <div>
+        <input type="text" class="form-control" id="input" />
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="input" class="col-form-label">Category</label>
+      <div>
+        <input type="text" class="form-control" id="input" />
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="input" class="col-form-label">Document</label>
+      <div class="form-control" style="border-radius: 15px">
+        <div class="d-flex justify-content" style="font-size: 15px">
+          <button
+            class="p-2 bi bi-file-earmark"
+            style="border-radius: 15px; margin-right: 5px; margin-left: 15px"
+          ></button>
+          <button
+            class="p-2 bi bi-folder"
+            style="border-radius: 15px; margin-right: 900px"
+          ></button>
+          <button
+            class="p-2 bi bi-grid-3x3-gap"
+            style="border-radius: 15px; margin-right: 5px"
+          ></button>
+          <button
+            class="p-2 bi bi-card-list"
+            style="border-radius: 15px; margin-right: 5px"
+          ></button>
+          <button
+            class="p-2 bi bi-folder-fill"
+            style="border-radius: 15px"
+          ></button>
+        </div>
+        <hr />
+        <div>
+          <input type="file"  class="form-control" rows="3" style="height: 150px" value="Browse files..." readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-check" style="margin-left: 50px;">
+    <input class="form-check-input" type="checkbox" >
+    <label class="form-check-label" for="flexCheckChecked">
+      Agree to confirm the correct author and copyright of the work
+    </label>
+  </div>
+  <div class="modal-footer">
+    <button class="cre fa-align-center" type="button" class="btn btn-primary">
+      Submit
+    </button>
+  </div>
+</div>

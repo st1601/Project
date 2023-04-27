@@ -1,0 +1,36 @@
+.content{
+  background-color: white;
+  height: 100%;
+  width: 100;
+  padding: 20px;
+  margin-left: 230px;
+}
+.bo{
+  border-radius: 4px;
+  background-color: oldlace;
+  margin-bottom: 15px;
+  .col-1{
+    text-align: center;
+  }
+  .p{
+    text-align: justify;
+  }
+}
+.bor{
+  display: grid;
+  place-items: center;
+  background-color: rgb(0,0,0,0.5);
+  position: fixed ;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  .pop{
+   width: 50%;
+   min-width: 300px;
+   padding: 16px 16px;
+   border-radius: 4px;
+   background-color: white;
+  }
+
+ }

@@ -1,0 +1,71 @@
+<div class="d-flex">
+  <div class="container">
+    <div class="text-center">
+      <div class="site-logo">
+        <a class="justify-content-center" routerLink="/">
+          <img src="assets/img/zyro-image.png" alt="" style="width: 100px" />
+        </a>
+      </div>
+      <br />
+      <ul class="flex-column mb-auto" style="margin-left: 15px;">
+        <li>
+          <a class="nav-link" [routerLink]="['/maina']" routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <br />
+        <li>
+          <a
+            class="nav-link"
+            [routerLink]="['/user']"
+            routerLinkActive="active"
+            >User management</a
+          >
+        </li>
+        <br />
+        <li>
+          <a
+            class="nav-link"
+            [routerLink]="['/eventa']"
+            routerLinkActive="active"
+            >Event</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="btn d-flex justify-content-end">
+  <div ngbDropdown class="d-inline-block">
+    <button
+      style="
+        background-color: rgb(255, 188, 150);
+        margin-bottom: -20px;
+        padding: 1px 7px;
+      "
+      class="btn btn-light"
+      id="dropdownBasic1"
+      ngbDropdownToggle
+    >
+      <i class="bi bi-person-circle" style="font-size: 20px"></i>
+    </button>
+    <div
+      style="background-color: white"
+      ngbDropdownMenu
+      aria-labelledby="dropdownBasic1"
+    >
+
+      <button ngbDropdownItem *ngIf="appService.isLogIn()">
+        <a
+          style="color: black"
+          class="nav-link"
+          href
+          (click)="appService.logout()"
+          >Logout
+        </a>
+      </button>
+    </div>
+  </div>
+</div>
+

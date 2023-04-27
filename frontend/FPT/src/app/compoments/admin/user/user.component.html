@@ -1,0 +1,217 @@
+<app-navbara></app-navbara>
+<div class="content">
+  <div>
+    <h2 class="d-flex justify-content-center">User management</h2>
+    <br />
+    <div class="d-flex justify-content-end">
+      <div ngbDropdown class="d-inline-block">
+        <button (click)="cr()" type="button" class="btn btn-primary br">
+          Create
+        </button>
+      </div>
+    </div>
+    <br />
+    <div
+      class="form-outline d-flex flex-row"
+      style="margin-left: 50px; margin-right: 950px"
+    >
+      <input id="search-focus" type="search" id="form1" class="form-control" />
+      <button class="p-2" style="border-radius: 5px">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+    <div class="d-flex flex-row-reverse" style="margin-right: 50px">
+      <div class="p-2">
+        <input type="text" class="form-control" placeholder="Sort" />
+      </div>
+      <div class="p-2">
+        <input type="text" class="form-control" placeholder="Filter" />
+      </div>
+    </div>
+    <br />
+    <div class="row justify-content-evenly">
+      <div *ngFor="let item of allUser" class="col-3">
+        <div *ngIf="showd" class="bor">
+          <div class="pop">
+            <div class="modal-header">
+              <h1>Delete Account</h1>
+              <button type="button" class="btn-close" (click)="cl()"></button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete your account?</p>
+            </div>
+            <div class="modal-footer">
+              <button (click)="cl()" type="button" class="cancelbtn" style="border-radius: 5px;">Cancel</button>
+              <button (click)="dele(item.id)" type="button" class="deletebtn" style="border-radius: 5px;">Delete</button>
+            </div>
+          </div>
+        </div>
+        <button (click)="po(item.id)" class="but" type="button">
+          <i class="bi bi-person-fill">{{item.userName}}</i>
+        </button>
+        <button (click)="dl()" style="border-radius: 5px">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </div>
+    <br />
+    <nav
+      aria-label="Page navigation example"
+      class="d-flex justify-content-center"
+    >
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- Modal Create -->
+  <div *ngIf="showc" class="bor">
+    <div class="pop">
+      <div class="modal-header">
+        <h1 class="text-align-center center">Create account</h1>
+        <button type="button" class="btn-close" (click)="cl()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">User Name</label>
+          <div class="col-sm-8">
+            <input [(ngModel)]="createUser.userName" type="text" class="form-control" id="input" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Full Name</label>
+          <div class="col-sm-8">
+            <input [(ngModel)]="createUser.fullName" type="text" class="form-control" id="input" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">DOB</label>
+          <div class="col-sm-8">
+            <input [(ngModel)]="createUser.doB" type="datetime-local" class="form-control" id="input" />
+            <p style="color: red;">***smore 18 age</p>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-8">
+            <input [(ngModel)]="createUser.email" type="email" class="form-control" id="input" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Phone</label>
+          <div class="col-sm-8">
+            <input [(ngModel)]="createUser.phoneNumber" type="number" class="form-control" id="input" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Role</label>
+          <div class="col-sm-8">
+            <select [(ngModel)]="createUser.role" class="form-select" aria-label="Disabled select example">
+              <option [ngValue]="0" selected>Staff</option>
+              <option [ngValue]="1">Admin</option>
+              <option [ngValue]="2">QAM</option>
+              <option [ngValue]="3">QAC</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Department</label>
+          <div class="col-sm-8">
+            <select [(ngModel)]="createUser.department" class="form-select" aria-label="Disabled select example">
+              <option [ngValue]="0" selected>None</option>
+              <option [ngValue]="1">IT</option>
+              <option [ngValue]="2">BusinessManagement</option>
+              <option [ngValue]="3">GraphicDesign</option>
+              <option [ngValue]="4">Marketing</option>
+              <option [ngValue]="5">EventManagement</option>
+              <option [ngValue]="6">InternationalBussiness</option>
+              <option [ngValue]="7">MediaManagement</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-8">
+            <input [(ngModel)]="createUser.password" type="password" class="form-control" id="input" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button (click)="save()" type="button" class="btn btn-primary">
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Profile -->
+  <div *ngIf="showp" class="bor">
+    <div class="pop">
+      <div class="modal-header">
+        <h1 class="text-align-center center">Profile</h1>
+        <button type="button" class="btn-close" (click)="cl()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">User Name</label>
+          <div class="col-sm-8">
+            <input [(ngModel)]="detailUser.userName" class="form-control" type="text" disabled />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Full Name</label>
+          <div class="col-sm-8">
+            <input  [(ngModel)]="detailUser.fullName"  class="form-control" type="text" disabled />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label"
+            >Date Of Birth</label
+          >
+          <div class="col-sm-8">
+            <input  [(ngModel)]="detailUser.doB"  class="form-control" type="datetime" disabled />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-8">
+            <input  [(ngModel)]="detailUser.email"  class="form-control" type="text" disabled />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Phone</label>
+          <div class="col-sm-8">
+            <input  [(ngModel)]="detailUser.phoneNumber"  class="form-control" type="number" disabled />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Role</label>
+          <div class="col-sm-8">
+            <input  [(ngModel)]="detailUser.role"  class="form-control" type="text" disabled />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="input" class="col-sm-2 col-form-label">Department</label>
+          <div class="col-sm-8">
+            <input  [(ngModel)]="detailUser.department"  class="form-control" type="text" disabled />
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+    <br />
+  </div>
+  <!-- Modal delete -->
+
+</div>

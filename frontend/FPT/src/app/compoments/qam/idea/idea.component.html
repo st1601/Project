@@ -1,0 +1,67 @@
+<app-navbarm></app-navbarm>
+<div class="content">
+  <div class="card">
+    <div class="form-group">
+      <label for="search-text">Search Text</label>
+      <input type="email" class="form-control" id="search-text" aria-describedby="search-text"
+        [(ngModel)]="searchText" placeholder="Enter text to search"
+        autofocus>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let c of characters | filter: searchText">
+        {{c}}
+      </li>
+    </ul>
+  </div>
+  <br />
+  <h2 class="d-flex">All Ideas</h2>
+  <div class="d-flex flex-row-reverse" style="margin-right: 50px">
+    <div class="p-2">
+      <input type="text" class="form-control" placeholder="Sort" />
+    </div>
+    <div class="p-2">
+      <input type="text" class="form-control" placeholder="Filter" />
+    </div>
+  </div>
+  <br />
+  <div class="justify-content-evenly">
+    <div *ngFor="let item of allIdea | filter: searchText" class="row bo">
+      <div class="col-1" style="font-size: 50px; margin-top: 25px">
+        <i
+          class="bi bi-person-circle"
+          style="margin: 5px; border-radius: 15px"
+        >{{item.userName}}</i>
+      </div>
+      <div class="col-9">
+        <h5>{{item.ideaTitle}}</h5>
+        <p class="p">
+          {{item.ideaDescription}}
+        </p>
+      </div>
+      <div
+        class="col-2"
+        style="
+          font-size: 20px;
+          letter-spacing: 15px;
+          padding: 30px;
+          margin-top: 10px;
+        "
+      >
+        <button
+          class="bi bi-hand-thumbs-up"
+          style="margin: 5px; border-radius: 15px"
+        ></button>
+        <button
+          class="bi bi-hand-thumbs-down"
+          style="margin: 5px; border-radius: 15px"
+        ></button>
+        <button
+          class="bi bi-chat-left-dots"
+          style="margin: 5px; border-radius: 15px"
+        ></button>
+      </div>
+    </div>
+    <br />
+  </div><br><br>
+  <br />
+</div>

@@ -1,0 +1,92 @@
+<app-navbara></app-navbara>
+<div class="content">
+  <h2 class="d-flex">Events</h2>
+  <div class="d-flex justify-content-end">
+    <div ngbDropdown class="d-inline-block">
+      <button (click)="cr()" type="button" class="btn btn-primary br">
+        Create
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="justify-content-evenly">
+    <div  class="justify-content-evenly">
+      <div  *ngFor="let item of allEvent" class="row bo">
+        <div class="col-1" style="font-size: 50px; margin-top: 25px; " >
+          <i  class="bi bi-life-preserver" style="margin: 5px; border-radius: 15px;">{{item.userName}}</i>
+        </div>
+        <div class="col-11">
+          <h6>{{item.eventName}}</h6>
+          <p class="p">
+            {{item.eventDescription}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br>
+    <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+</div>
+<!-- Modal Create -->
+<div *ngIf="showc" class="bor">
+  <div class="pop">
+    <div class="modal-header">
+      <h1 class="text-align-center center">Create Event</h1>
+      <button type="button" class="btn-close" (click)="cl()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3 row">
+        <label for="input" class="col-form-label">Manager</label>
+        <div>
+          <select [(ngModel)]="createEvent.userId" class="form-select" aria-label="Disabled select example">
+            <option *ngFor="let item of allUser, let i = index" [ngValue]="item.id" [attr.selected]="i == 0 ? true : false">{{item.userName}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-form-label">Name</label>
+        <div >
+          <input [(ngModel)]="createEvent.eventName" type="text" class="form-control" id="input" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-form-label">Description</label>
+        <div >
+          <input [(ngModel)]="createEvent.eventDescription" type="text" class="form-control" id="input" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-form-label">First Closing Date</label>
+        <div>
+          <input [(ngModel)]="createEvent.firstClosingDate" type="date" class="form-control" id="input" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-form-label">Last Closing Date</label>
+        <div>
+          <input [(ngModel)]="createEvent.lastClosingDate" type="date" class="form-control" id="input" />
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button (click)="save()" class="cre fa-align-center" type="button" class="btn btn-primary">Create</button>
+    </div>
+  </div>
+</div>
+

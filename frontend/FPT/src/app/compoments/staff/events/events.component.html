@@ -1,0 +1,48 @@
+<app-navbars></app-navbars>
+<div class="content">
+    <div class="form-outline d-flex flex-row" style="margin-left: 150px; margin-right: 130px;">
+      <input id="search-focus" type="search" id="form1" class="form-control" />
+      <button class="p-2" style="border-radius: 5px;">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  <h2 class="d-flex">Events</h2>
+
+  <div class="d-flex flex-row-reverse" style="margin-right: 50px;">
+    <div class="p-2"><input type="text" class="form-control" placeholder="Sort"></div>
+    <div class="p-2"><input type="text" class="form-control" placeholder="Filter"></div>
+  </div>
+  <br>
+  <div  class="justify-content-evenly">
+    <button *ngFor="let item of allEvent" [routerLink]="['/ideas']"  class="row bo" style="width: 1250px; margin-left: 40px; margin-bottom: 15px;">
+      <div class="col-1" style="font-size: 50px; margin-top: 25px;" >
+        <i  class="bi bi-person-circle" style="margin: 5px; border-radius: 15px;">{{item.userName}}</i>
+      </div>
+      <div class="col-11">
+        <h6>{{item.eventName}}</h6>
+        <p class="p">
+          {{item.eventDescription}}
+        </p>
+      </div>
+    </button>
+  </div>
+  <br />
+  <br>
+  <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
